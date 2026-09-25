@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Calculator</title>
+    <style>
+        /* Page Background and Centering */
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        /* 1. Calculator Background & Outer Text Color */
+        form[name="cal"] {
+            background-color: #1e293b; /* Calculator background color */
+            color: #ffffff;             /* Main text color */
+            padding: 24px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            width: 290px;
+        }
+
+        /* 2. Display Screen Colors */
+        #display {
+            width: 100%;
+            height: 60px;
+            background-color: #090d16; /* Display background color */
+            color: #38bdf8;             /* Display text color (Cyan) */
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-align: right;
+            padding: 0 12px;
+            border: 2px solid #334155;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        /* General Button Styling */
+        .button {
+            width: 54px;
+            height: 54px;
+            margin: 5px 2px;
+            font-size: 1.25rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        /* 3. Number Digits Colors (0-9) */
+        .digits {
+            background-color: #334155; /* Digit button background color */
+            color: #f8fafc;             /* Digit button text color */
+        }
+        .digits:hover {
+            background-color: #475569;
+            transform: translateY(-2px);
+        }
+
+        /* 4. Operator Math Buttons Colors (+, -, x, /, =) */
+        .mathButtons {
+            background-color: #6366f1; /* Operator button background color */
+            color: #ffffff;             /* Operator text color */
+        }
+        .mathButtons:hover {
+            background-color: #4f46e5;
+            transform: translateY(-2px);
+        }
+
+        /* 5. Clear Button Colors (C) */
+        #clearbutton {
+            background-color: #ef4444; /* Clear button background color */
+            color: #ffffff;             /* Clear text color */
+        }
+        #clearbutton:hover {
+            background-color: #dc2626;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+    <form name="cal">
+        <input type="text" id="display" readonly>
+        <br>
+        <input type="button" class="button digits" value="7" onclick="cal.display.value +='7'">
+        <input type="button" class="button digits" value="8" onclick="cal.display.value +='8'">
+        <input type="button" class="button digits" value="9" onclick="cal.display.value +='9'">
+        <input class="button mathButtons" type="button" value="+" onclick="cal.display.value += ' + '">
+        <br>
+        <input type="button" class="button digits" value="4" onclick="cal.display.value +='4'">
+        <input type="button" class="button digits" value="5" onclick="cal.display.value +='5'">
+        <input type="button" class="button digits" value="6" onclick="cal.display.value +='6'">
+        <input class="button mathButtons" type="button" value="-" onclick="cal.display.value += ' - '">
+        <br>
+        <input type="button" class="button digits" value="1" onclick="cal.display.value +='1'">
+        <input type="button" class="button digits" value="2" onclick="cal.display.value +='2'">
+        <input type="button" class="button digits" value="3" onclick="cal.display.value +='3'">
+        <input class="button mathButtons" type="button" value="x" onclick="cal.display.value += ' *A '">
+        <br>
+        <input id="clearbutton" class="button" type="button" value="C" onclick="cal.display.value=''">
+        <input type="button" class="button digits" value="0" onclick="cal.display.value +='0'">
+        <input class="button mathButtons" type="button" value="=" onclick="cal.display.value = eval(cal.display.value)">
+        <input class="button mathButtons" type="button" value="/" onclick="cal.display.value += ' / '">
+    </form>
+
+</body>
+</html>
